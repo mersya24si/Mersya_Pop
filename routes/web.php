@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 
 Route::get('/', function () {
@@ -29,3 +30,5 @@ Route::get('/mahasiswa/{param1?}',
 Route::get('/about', function () {
     return view('halaman-about');
 });
+
+Route::get('/home',[HomeController::class,'index']);
