@@ -12,13 +12,13 @@ class PegawaiController
         $my_name = "Mersya Meylani Putri";
 
         // 2. Umur (tanggal lahir sampai hari ini)
-        $tanggal_lahir = new \DateTime("2002-05-12"); // ganti sesuai tanggal lahirmu
+        $tanggal_lahir = new \DateTime("2006-05-24");
         $hari_ini = new \DateTime();
         $selisih = $hari_ini->diff($tanggal_lahir);
         $my_age = $selisih->y; // ambil umur dalam tahun
 
         // 3. Hobi (array minimal 5 item)
-        $hobbies = ["Membaca", "Menulis", "Coding", "Mendengarkan Musik", "Traveling"];
+        $hobbies = ["Menari", "Memasak", "Nonton", "Kulineran", "Traveling"];
 
         // 4. Tanggal harus wisuda
         $tgl_harus_wisuda = new \DateTime("2029-10-10");
