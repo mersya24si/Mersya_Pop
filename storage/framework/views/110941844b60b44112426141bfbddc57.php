@@ -51,13 +51,13 @@
         content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets-admin') }}/img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('assets-admin') }}/img/favicon/favicon-32x32.png">
+        href="<?php echo e(asset('assets-admin')); ?>/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('assets-admin') }}/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{{ asset('assets-admin') }}/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="{{ asset('assets-admin') }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+        href="<?php echo e(asset('assets-admin')); ?>/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/safari-pinned-tab.svg" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
@@ -68,7 +68,7 @@
     <link type="text/css" href="assets-admin/vendor/notyf/notyf.min.css" rel="stylesheet">
 
     <!-- Volt CSS -->
-    <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
+    <link type="text/css" href="<?php echo e(asset('assets-admin/css/volt.css')); ?>" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
@@ -81,8 +81,8 @@
 
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
         <a class="navbar-brand me-lg-5" href="assets-admin/index.html">
-            <img class="navbar-brand-dark" src="{{ asset('assets-admin') }}/img/brand/light.svg" alt="Volt logo" /> <img
-                class="navbar-brand-light" src="{{ asset('assets-admin') }}/img/brand/dark.svg" alt="Volt logo" />
+            <img class="navbar-brand-dark" src="<?php echo e(asset('assets-admin')); ?>/img/brand/light.svg" alt="Volt logo" /> <img
+                class="navbar-brand-light" src="<?php echo e(asset('assets-admin')); ?>/img/brand/dark.svg" alt="Volt logo" />
         </a>
         <div class="d-flex align-items-center">
             <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -99,11 +99,11 @@
                 class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
                     <div class="avatar-lg me-4">
-                        <img src="{{ asset('assets-admin/img/team/profile-picture-3.jpg') }}"
+                        <img src="<?php echo e(asset('assets-admin/img/team/profile-picture-3.jpg')); ?>"
                             class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                     </div>
                     <div class="d-block">
-                        <h2 class="h5 mb-3">Hi, {{ session('username') }} </h2>
+                        <h2 class="h5 mb-3">Hi, <?php echo e(session('username')); ?> </h2>
                         <a href="../../pages/examples/sign-in.html"
                             class="btn btn-secondary btn-sm d-inline-flex align-items-center">
                             <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -132,7 +132,7 @@
                 <li class="nav-item">
                     <a href="../../index.html" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
-                            <img src="{{ asset('assets-admin/img/brand/light.svg') }}" height="20" width="20"
+                            <img src="<?php echo e(asset('assets-admin/img/brand/light.svg')); ?>" height="20" width="20"
                                 alt="Volt Logo">
                         </span>
                         <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
@@ -153,7 +153,7 @@
                     </a>
                 </li>
                 <li class="nav-item  active ">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
+                    <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -278,7 +278,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-1.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-1.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -300,7 +300,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-2.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-2.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -322,7 +322,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-3.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-3.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 m-2">
@@ -344,7 +344,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-4.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-4.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -366,7 +366,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-5.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-5.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -401,7 +401,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="media d-flex align-items-center">
                                     <img class="avatar rounded-circle" alt="Image placeholder"
-                                        src="{{ asset('assets-admin') }}/img/team/profile-picture-3.jpg">
+                                        src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-3.jpg">
                                     <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                                         <span class="mb-0 font-small fw-bold text-gray-900">Bonnie Green</span>
                                     </div>
@@ -475,23 +475,23 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#">Volt</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
+                    <li class="breadcrumb-item active" aria-current="page">Pelanggan</li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah Pelanggan</h1>
-                    <p class="mb-0">Form untuk menambahkan data pelanggan baru.</p>
+                    <h1 class="h4">Data Pelanggan</h1>
+                    <p class="mb-0">List data seluruh pelanggan</p>
                 </div>
                 <div>
-                    <a href="pelanggan.index" class="btn-primary btn-outline-gray"><i
-                            class="far fa-question-circle me-1"></i> Kembali</a>
+                    <a href="pelanggan.index" class="btn-success text-white"><i
+                            class="far fa-question-circle me-1"></i> Tambah Pelanggan</a>
                 </div>
             </div>
         </div>
 
-<form action="{{ route('pelanggan.store') }}" method="POST">
-    @csrf
+<form action="<?php echo e(route('pelanggan.store')); ?>" method="POST">
+    <?php echo csrf_field(); ?>
     <div class="row">
         <div class="col-12 mb-4">
             <div class="card border-0 shadow components-section">
@@ -506,15 +506,29 @@
                                 <label for="first_name">First Name</label>
                                 <input
                                     type="text"
-                                    class="form-control @error('first_name') is-invalid @enderror"
+                                    class="form-control <?php $__errorArgs = ['first_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                     id="first_name"
                                     name="first_name"
-                                    value="{{ old('first_name') }}"
+                                    value="<?php echo e(old('first_name')); ?>"
                                     placeholder="Enter first name"
                                     required>
-                                @error('first_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <?php $__errorArgs = ['first_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="invalid-feedback"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <!-- Last Name -->
@@ -522,15 +536,29 @@
                                 <label for="last_name">Last Name</label>
                                 <input
                                     type="text"
-                                    class="form-control @error('last_name') is-invalid @enderror"
+                                    class="form-control <?php $__errorArgs = ['last_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                     id="last_name"
                                     name="last_name"
-                                    value="{{ old('last_name') }}"
+                                    value="<?php echo e(old('last_name')); ?>"
                                     placeholder="Enter last name"
                                     required>
-                                @error('last_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <?php $__errorArgs = ['last_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="invalid-feedback"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <!-- Birthday -->
@@ -547,13 +575,27 @@
                                     </span>
                                     <input
                                         type="date"
-                                        class="form-control @error('birthday') is-invalid @enderror"
+                                        class="form-control <?php $__errorArgs = ['birthday'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                         id="birthday"
                                         name="birthday"
-                                        value="{{ old('birthday') }}">
-                                    @error('birthday')
-                                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                                    @enderror
+                                        value="<?php echo e(old('birthday')); ?>">
+                                    <?php $__errorArgs = ['birthday'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                        <div class="invalid-feedback d-block"><?php echo e($message); ?></div>
+                                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
                         </div>
@@ -565,17 +607,31 @@
                             <div class="mb-3">
                                 <label for="gender">Gender</label>
                                 <select
-                                    class="form-select @error('gender') is-invalid @enderror"
+                                    class="form-select <?php $__errorArgs = ['gender'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                     id="gender"
                                     name="gender">
                                     <option value="">-- Select Gender --</option>
-                                    <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                                    <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
-                                    <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
+                                    <option value="Male" <?php echo e(old('gender') == 'Male' ? 'selected' : ''); ?>>Male</option>
+                                    <option value="Female" <?php echo e(old('gender') == 'Female' ? 'selected' : ''); ?>>Female</option>
+                                    <option value="Other" <?php echo e(old('gender') == 'Other' ? 'selected' : ''); ?>>Other</option>
                                 </select>
-                                @error('gender')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                                @enderror
+                                <?php $__errorArgs = ['gender'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="invalid-feedback d-block"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <!-- Email -->
@@ -583,16 +639,30 @@
                                 <label for="email">Email address</label>
                                 <input
                                     type="email"
-                                    class="form-control @error('email') is-invalid @enderror"
+                                    class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                     id="email"
                                     name="email"
-                                    value="{{ old('email') }}"
+                                    value="<?php echo e(old('email')); ?>"
                                     placeholder="Enter email"
                                     required>
                                 <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                @error('email')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="invalid-feedback"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <!-- Phone -->
@@ -600,14 +670,28 @@
                                 <label for="phone">Phone</label>
                                 <input
                                     type="text"
-                                    class="form-control @error('phone') is-invalid @enderror"
+                                    class="form-control <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                     id="phone"
                                     name="phone"
-                                    value="{{ old('phone') }}"
+                                    value="<?php echo e(old('phone')); ?>"
                                     placeholder="Enter phone number">
-                                @error('phone')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <?php $__errorArgs = ['phone'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <div class="invalid-feedback"><?php echo e($message); ?></div>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
 
                         </div>
@@ -707,10 +791,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Volt JS -->
-    <script src="{{ asset('assets-admin') }}/js/volt.js"></script>
+    <script src="<?php echo e(asset('assets-admin')); ?>/js/volt.js"></script>
 
 
 </body>
 
 </html>
 
+<?php /**PATH D:\MersyaMeylaniPutri_2SID\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/pelanggan/index.blade.php ENDPATH**/ ?>
