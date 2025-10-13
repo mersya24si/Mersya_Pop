@@ -61,7 +61,7 @@
                 class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
                     <div class="avatar-lg me-4">
-                        <img src="{{ asset('assets-admin/img/team/profile-picture-3.jpg') }}"
+                        <img src="<?php echo e(asset('assets-admin/img/team/profile-picture-3.jpg')); ?>"
                             class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                     </div>
                     <div class="d-block">
@@ -94,14 +94,14 @@
                 <li class="nav-item">
                     <a href="../../index.html" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
-                            <img src="{{ asset('assets-admin/img/brand/light.svg') }}" height="20" width="20"
+                            <img src="<?php echo e(asset('assets-admin/img/brand/light.svg')); ?>" height="20" width="20"
                                 alt="Volt Logo">
                         </span>
                         <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
                     </a>
                 </li>
                 <li class="nav-item  active ">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
+                    <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -1020,3 +1020,4 @@
 </body>
 
 </html>
+<?php /**PATH D:\MersyaMeylaniPutri_2SID\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

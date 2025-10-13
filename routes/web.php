@@ -36,6 +36,7 @@ Route::get('/home',[HomeController::class,'index']);
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\MatakuliahController;
 
 Route::get('/pegawai', [PegawaiController::class, 'index']);
@@ -43,3 +44,5 @@ Route::get('/pegawai', [PegawaiController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
+
+Route::resource('pelanggan', PelangganController::class);
