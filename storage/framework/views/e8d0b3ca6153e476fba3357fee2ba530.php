@@ -152,7 +152,7 @@
                         <span class="sidebar-text">Pelanggan</span>
                     </a>
                 </li>
-                <li class="nav-item  active ">
+                <li class="nav-item <?php echo e(request()->routeIs('pelanggan.*') ? 'active' : ''); ?>">
                     <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -797,7 +797,5 @@ unset($__errorArgs, $__bag); ?>
 </body>
 
 </html>
-apps-fileview.texmex_20251002.00_p0
-tests2.txt
-Menampilkan tests2.txt.
+
 <?php /**PATH D:\MersyaMeylaniPutri_2SID\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/pelanggan/create.blade.php ENDPATH**/ ?>

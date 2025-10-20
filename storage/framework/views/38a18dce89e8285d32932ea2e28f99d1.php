@@ -1,6 +1,5 @@
-@extends('layouts.admin.app')
-@section('content')
-{{-- Start Main Content --}}
+<?php $__env->startSection('content'); ?>
+
 <div class="py-4">
     <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
@@ -15,51 +14,47 @@
                 </a>
             </li>
             <li class="breadcrumb-item"><a href="#">Volt</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data Pelanggan</li>
+            <li class="breadcrumb-item active" aria-current="page">Data User</li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            @if (session('success'))
+            <?php if(session('success')): ?>
                 <div class="alert alert-success mt-3">
-                    {{ session('success') }}
+                    <?php echo e(session('success')); ?>
+
                 </div>
-            @endif
-            <h1 class="h4">Data Pelanggan</h1>
-            <p class="mb-0">Kumpulan Data Pelanggan.</p>
+            <?php endif; ?>
+            <h1 class="h4">Data User</h1>
+            <p class="mb-0">Kumpulan Data User.</p>
         </div>
         <div>
-            <a href="pelanggan/create" class="btn-primary btn-outline-gray"><i class="far fa-question-circle me-1"></i>
-                Tambah Pelanggan</a>
+            <a href="user/create" class="btn-primary btn-outline-gray"><i class="far fa-question-circle me-1"></i>
+                Tambah User</a>
         </div>
     </div>
 </div>
 <div class="card border-0 shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
-            <table id="table-pelanggan" class="table table-centered table-nowrap mb-0 rounded">
+            <table id="table-user" class="table table-centered table-nowrap mb-0 rounded">
                 <thead class="thead-light">
                     <tr>
-                        <th class="border-0 rounded-start">First Name</th>
-                        <th class="border-0">Last Name</th>
-                        <th class="border-0">Birthday</th>
-                        <th class="border-0">Gender</th>
+                        <th class="border-0 rounded-start">Name</th>
+                        <th class="border-0">Password</th>
                         <th class="border-0">Email</th>
-                        <th class="border-0">Phone</th>
                         <th class="border-0 rounded-end">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dataPelanggan as $item)
+                    <?php $__currentLoopData = $dataUser; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{ $item->first_name }}</td>
-                            <td>{{ $item->last_name }}</td>
-                            <td>{{ $item->birthday }}</td>
-                            <td>{{ $item->gender }}</td>
-                            <td>{{ $item->email }}</td>
-                            <td>{{ $item->phone }}</td>
+                            <td><?php echo e($item->name); ?></td>
+                            <td><?php echo e($item->email); ?></td>
+                            <td><?php echo e($item->password); ?></td>
+
                             <td>
-                                <a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
+                                <a href="<?php echo e(route('user.edit', $item->id)); ?>"
                                     class="btn btn-info btn-sm">
                                     <svg class="icon icon-xs me-2" fill="none" stroke-width="1.5"
                                         stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -70,10 +65,10 @@
                                     </svg>
                                     Edit
                                 </a>
-                                <form action="{{ route('pelanggan.destroy', $item->pelanggan_id) }}" method="POST"
+                                <form action="<?php echo e(route('user.destroy', $item->id)); ?>" method="POST"
                                     style="display:inline">
-                                    @csrf
-                                    @method('DELETE')
+                                    <?php echo csrf_field(); ?>
+                                    <?php echo method_field('DELETE'); ?>
                                     <button type="submit" class="btn btn-danger btn-sm">
                                         <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
                                             stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
@@ -87,7 +82,7 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tbody>
             </table>
         </div>
@@ -95,7 +90,7 @@
 </div>
 
 
-{{-- Start Theme Settings --}}
+
 
 <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
     <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
@@ -110,7 +105,9 @@
     </div>
 </div>
 
-{{-- End Theme Settings --}}
 
-{{-- End Main Content --}}
-@endsection
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\MersyaMeylaniPutri_2SID\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/user/index.blade.php ENDPATH**/ ?>

@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li class="breadcrumb-item"><a href="#">Volt</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data Pelanggan</li>
+            <li class="breadcrumb-item active" aria-current="page">Data User</li>
         </ol>
     </nav>
     <div class="d-flex justify-content-between w-100 flex-wrap">
@@ -25,41 +25,36 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <h1 class="h4">Data Pelanggan</h1>
-            <p class="mb-0">Kumpulan Data Pelanggan.</p>
+            <h1 class="h4">Data User</h1>
+            <p class="mb-0">Kumpulan Data User.</p>
         </div>
         <div>
-            <a href="pelanggan/create" class="btn-primary btn-outline-gray"><i class="far fa-question-circle me-1"></i>
-                Tambah Pelanggan</a>
+            <a href="user/create" class="btn-primary btn-outline-gray"><i class="far fa-question-circle me-1"></i>
+                Tambah User</a>
         </div>
     </div>
 </div>
 <div class="card border-0 shadow mb-4">
     <div class="card-body">
         <div class="table-responsive">
-            <table id="table-pelanggan" class="table table-centered table-nowrap mb-0 rounded">
+            <table id="table-user" class="table table-centered table-nowrap mb-0 rounded">
                 <thead class="thead-light">
                     <tr>
-                        <th class="border-0 rounded-start">First Name</th>
-                        <th class="border-0">Last Name</th>
-                        <th class="border-0">Birthday</th>
-                        <th class="border-0">Gender</th>
+                        <th class="border-0 rounded-start">Name</th>
+                        <th class="border-0">Password</th>
                         <th class="border-0">Email</th>
-                        <th class="border-0">Phone</th>
                         <th class="border-0 rounded-end">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($dataPelanggan as $item)
+                    @foreach ($dataUser as $item)
                         <tr>
-                            <td>{{ $item->first_name }}</td>
-                            <td>{{ $item->last_name }}</td>
-                            <td>{{ $item->birthday }}</td>
-                            <td>{{ $item->gender }}</td>
+                            <td>{{ $item->name}}</td>
                             <td>{{ $item->email }}</td>
-                            <td>{{ $item->phone }}</td>
+                            <td>{{ $item->password }}</td>
+
                             <td>
-                                <a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
+                                <a href="{{ route('user.edit', $item->id) }}"
                                     class="btn btn-info btn-sm">
                                     <svg class="icon icon-xs me-2" fill="none" stroke-width="1.5"
                                         stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -70,7 +65,7 @@
                                     </svg>
                                     Edit
                                 </a>
-                                <form action="{{ route('pelanggan.destroy', $item->pelanggan_id) }}" method="POST"
+                                <form action="{{ route('user.destroy', $item->id) }}" method="POST"
                                     style="display:inline">
                                     @csrf
                                     @method('DELETE')

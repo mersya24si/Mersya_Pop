@@ -1,5 +1,3 @@
-
-index
 <!--
 
 =========================================================
@@ -52,28 +50,19 @@ The above copyright notice and this permission notice shall be included in all c
         content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets-admin') }}/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="<?php echo e(asset('assets-admin')); ?>/img/favicon/favicon-32x32.png">
+        href="{{ asset('assets-admin') }}/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="<?php echo e(asset('assets-admin')); ?>/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+        href="{{ asset('assets-admin') }}/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ asset('assets-admin') }}/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="{{ asset('assets-admin') }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Sweet Alert -->
-    <link type="text/css" href="<?php echo e(asset('assets-admin')); ?>/vendor/sweetalert2/dist/sweetalert2.min.css"
-        rel="stylesheet">
-
-    <!-- Notyf -->
-    <link type="text/css" href="<?php echo e(asset('assets-admin')); ?>vendor/notyf/notyf.min.css" rel="stylesheet">
-
-    
-    <?php echo $__env->make('admin.css', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
-    
-
-    <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    {{-- Start CSS --}}
+    @include('layouts.admin.css')
+    {{-- End CSS --}}
 
 </head>
 
@@ -81,23 +70,27 @@ The above copyright notice and this permission notice shall be included in all c
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
-    
-    <?php echo $__env->make('admin.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
-    
+    {{-- Start Sidebar --}}
+    @include('layouts.admin.sidebar')
+    {{-- End Sidebar --}}
 
     <main class="content">
-        
-        <?php echo $__env->make('admin.header', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
-        
-        <div class="py-4">
-            <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
-                <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
-                    <li class="breadcrumb-item">
-                        <a
-                            href="D:\Putri2SID\laragon-6.0-minimal\www\putri-pop\resources\views\admin\dashboard.blade.php">
-                            <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+        {{-- Start Header --}}
+        @include('layouts.admin.header')
+        {{-- End Header --}}
 
-<?php /**PATH D:\MersyaMeylaniPutri_2SID\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/pelanggan/index.blade.php ENDPATH**/ ?>
+        {{-- Start Main Content --}}
+        @yield('content')
+        {{-- End Main Content --}}
+        {{-- Start Footer --}}
+        @include('layouts.admin.footer')
+        {{-- End Footer --}}
+    </main>
+
+
+    {{-- Start JS --}}
+    @include('layouts.admin.js')
+    {{-- End JS --}}
+</body>
+
+</html>

@@ -1,4 +1,3 @@
-
 <!--
 
 =========================================================
@@ -149,10 +148,10 @@
                                 </path>
                             </svg>
                         </span>
-                        <span class="sidebar-text">Pelanggan</span>
+                        <span class="sidebar-text">User</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('pelanggan.*') ? 'active' : '' }}">
+                <li class="nav-item {{ request()->routeIs('user.*') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -480,149 +479,99 @@
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah Pelanggan</h1>
-                    <p class="mb-0">Form untuk menambahkan data pelanggan baru.</p>
+                    <h1 class="h4">User</h1>
+                    <p class="mb-0">Form untuk User baru.</p>
                 </div>
                 <div>
-                    <a href="pelanggan.index" class="btn-primary btn-outline-gray"><i
+                    <a href="user.index" class="btn-primary btn-outline-gray"><i
                             class="far fa-question-circle me-1"></i> Kembali</a>
                 </div>
             </div>
         </div>
 
-<form action="{{ route('pelanggan.store') }}" method="POST">
-    @csrf
-    <div class="row">
-        <div class="col-12 mb-4">
-            <div class="card border-0 shadow components-section">
-                <div class="card-body">
-                    <div class="row mb-4">
+        <form action="{{ route('user.store') }}" method="POST">
+            @csrf
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow components-section">
+                        <div class="card-body">
+                            <div class="row mb-4">
 
-                        <!-- Kolom Kiri -->
-                        <div class="col-lg-6 col-sm-12">
+                                <!-- Kolom Kiri -->
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="name">Nama Lengkap</label>
+                                        <input type="text" class="form-control" name ="name" id="name"
+                                        value="{{old ('name)')}}" placeholder="Masukkan nama lengkap"
+                                        required>
+                                    </div>
 
-                            <!-- First Name -->
-                            <div class="mb-3">
-                                <label for="first_name">First Name</label>
-                                <input
-                                    type="text"
-                                    class="form-control @error('first_name') is-invalid @enderror"
-                                    id="first_name"
-                                    name="first_name"
-                                    value="{{ old('first_name') }}"
-                                    placeholder="Enter first name"
-                                    required>
-                                @error('first_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+                                    <!-- Email -->
+                                    <div class="mb-3">
+                                        <label for="email">Email address</label>
+                                        <input type="email"
+                                            class="form-control @error('email') is-invalid @enderror" id="email"
+                                            name="email" value="{{ old('email') }}" placeholder="Enter email"
+                                            required>
+                                        <small class="form-text text-muted">We'll never share your email with anyone
+                                            else.</small>
+                                        @error('email')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
 
-                            <!-- Last Name -->
-                            <div class="mb-3">
-                                <label for="last_name">Last Name</label>
-                                <input
-                                    type="text"
-                                    class="form-control @error('last_name') is-invalid @enderror"
-                                    id="last_name"
-                                    name="last_name"
-                                    value="{{ old('last_name') }}"
-                                    placeholder="Enter last name"
-                                    required>
-                                @error('last_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
 
-                            <!-- Birthday -->
-                            <div class="mb-3">
-                                <label for="birthday">Birthday</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </span>
-                                    <input
-                                        type="date"
-                                        class="form-control @error('birthday') is-invalid @enderror"
-                                        id="birthday"
-                                        name="birthday"
-                                        value="{{ old('birthday') }}">
-                                    @error('birthday')
-                                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                                    @enderror
+
+
+
+
+                                    <div class="mb-3">
+                                        {{-- Label untuk input field --}}
+                                        <label for="email" class="form-label">Password</label>
+
+                                        {{-- Input Group untuk menyertakan ikon --}}
+                                        <div class="input-group">
+                                            {{-- Ikon - sesuaikan dengan SVG yang Anda miliki --}}
+                                            <span class="input-group-text">
+                                                <svg class="icon icon-xs text-gray-600" fill="currentColor"
+                                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    {{-- Contoh path SVG untuk ikon kunci (password) --}}
+                                                    <path fill-rule="evenodd"
+                                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm3 10a1 1 0 10-2 0v2a1 1 0 102 0v-2z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </span>
+
+                                            {{-- Input field password --}}
+                                            <input type="password" name="password" id="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                {{-- Password **tidak** boleh memiliki old value saat diedit untuk keamanan. --}} {{-- value="{{ old('password') }}" --}}
+                                                placeholder="Masukkan Password">
+                                        </div>
+
+                                        {{-- Tampilan pesan error validation --}}
+                                        @error('password')
+                                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <!-- Kolom Kanan -->
+                                <div class="col-lg-6 col-sm-12">
+
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Kolom Kanan -->
-                        <div class="col-lg-6 col-sm-12">
-
-                            <!-- Gender -->
-                            <div class="mb-3">
-                                <label for="gender">Gender</label>
-                                <select
-                                    class="form-select @error('gender') is-invalid @enderror"
-                                    id="gender"
-                                    name="gender">
-                                    <option value="">-- Select Gender --</option>
-                                    <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                                    <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
-                                    <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
-                                </select>
-                                @error('gender')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <!-- Email -->
-                            <div class="mb-3">
-                                <label for="email">Email address</label>
-                                <input
-                                    type="email"
-                                    class="form-control @error('email') is-invalid @enderror"
-                                    id="email"
-                                    name="email"
-                                    value="{{ old('email') }}"
-                                    placeholder="Enter email"
-                                    required>
-                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                @error('email')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <!-- Phone -->
-                            <div class="mb-3">
-                                <label for="phone">Phone</label>
-                                <input
-                                    type="text"
-                                    class="form-control @error('phone') is-invalid @enderror"
-                                    id="phone"
-                                    name="phone"
-                                    value="{{ old('phone') }}"
-                                    placeholder="Enter phone number">
-                                @error('phone')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                            <!-- Tombol Submit -->
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Save Customer</button>
                             </div>
 
                         </div>
                     </div>
-
-                    <!-- Tombol Submit -->
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Save Customer</button>
-                    </div>
-
                 </div>
             </div>
-        </div>
-    </div>
-</form>
+        </form>
 
 
 
@@ -713,4 +662,3 @@
 </body>
 
 </html>
-

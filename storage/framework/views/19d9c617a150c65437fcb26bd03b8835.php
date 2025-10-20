@@ -1,4 +1,3 @@
-
 <!--
 
 =========================================================
@@ -51,13 +50,13 @@
         content="https://themesberg.s3.us-east-2.amazonaws.com/public/products/volt-pro-bootstrap-5-dashboard/volt-pro-preview.jpg">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets-admin') }}/img/favicon/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32"
-        href="{{ asset('assets-admin') }}/img/favicon/favicon-32x32.png">
+        href="<?php echo e(asset('assets-admin')); ?>/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16"
-        href="{{ asset('assets-admin') }}/img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="{{ asset('assets-admin') }}/img/favicon/site.webmanifest">
-    <link rel="mask-icon" href="{{ asset('assets-admin') }}/img/favicon/safari-pinned-tab.svg" color="#ffffff">
+        href="<?php echo e(asset('assets-admin')); ?>/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="<?php echo e(asset('assets-admin')); ?>/img/favicon/safari-pinned-tab.svg" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
@@ -68,7 +67,7 @@
     <link type="text/css" href="assets-admin/vendor/notyf/notyf.min.css" rel="stylesheet">
 
     <!-- Volt CSS -->
-    <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
+    <link type="text/css" href="<?php echo e(asset('assets-admin/css/volt.css')); ?>" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
 
@@ -81,8 +80,8 @@
 
     <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
         <a class="navbar-brand me-lg-5" href="assets-admin/index.html">
-            <img class="navbar-brand-dark" src="{{ asset('assets-admin') }}/img/brand/light.svg" alt="Volt logo" /> <img
-                class="navbar-brand-light" src="{{ asset('assets-admin') }}/img/brand/dark.svg" alt="Volt logo" />
+            <img class="navbar-brand-dark" src="<?php echo e(asset('assets-admin')); ?>/img/brand/light.svg" alt="Volt logo" /> <img
+                class="navbar-brand-light" src="<?php echo e(asset('assets-admin')); ?>/img/brand/dark.svg" alt="Volt logo" />
         </a>
         <div class="d-flex align-items-center">
             <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -99,11 +98,11 @@
                 class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
                 <div class="d-flex align-items-center">
                     <div class="avatar-lg me-4">
-                        <img src="{{ asset('assets-admin/img/team/profile-picture-3.jpg') }}"
+                        <img src="<?php echo e(asset('assets-admin/img/team/profile-picture-3.jpg')); ?>"
                             class="card-img-top rounded-circle border-white" alt="Bonnie Green">
                     </div>
                     <div class="d-block">
-                        <h2 class="h5 mb-3">Hi, {{ session('username') }} </h2>
+                        <h2 class="h5 mb-3">Hi, <?php echo e(session('username')); ?> </h2>
                         <a href="../../pages/examples/sign-in.html"
                             class="btn btn-secondary btn-sm d-inline-flex align-items-center">
                             <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -132,7 +131,7 @@
                 <li class="nav-item">
                     <a href="../../index.html" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
-                            <img src="{{ asset('assets-admin/img/brand/light.svg') }}" height="20" width="20"
+                            <img src="<?php echo e(asset('assets-admin/img/brand/light.svg')); ?>" height="20" width="20"
                                 alt="Volt Logo">
                         </span>
                         <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
@@ -149,11 +148,11 @@
                                 </path>
                             </svg>
                         </span>
-                        <span class="sidebar-text">Pelanggan</span>
+                        <span class="sidebar-text">User</span>
                     </a>
                 </li>
-                <li class="nav-item {{ request()->routeIs('pelanggan.*') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}" class="nav-link">
+                <li class="nav-item <?php echo e(request()->routeIs('user.*') ? 'active' : ''); ?>">
+                    <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -278,7 +277,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-1.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-1.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -300,7 +299,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-2.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-2.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -322,7 +321,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-3.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-3.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 m-2">
@@ -344,7 +343,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-4.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-4.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -366,7 +365,7 @@
                                             <div class="col-auto">
                                                 <!-- Avatar -->
                                                 <img alt="Image placeholder"
-                                                    src="{{ asset('assets-admin') }}/img/team/profile-picture-5.jpg"
+                                                    src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-5.jpg"
                                                     class="avatar-md rounded">
                                             </div>
                                             <div class="col ps-0 ms-2">
@@ -401,7 +400,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="media d-flex align-items-center">
                                     <img class="avatar rounded-circle" alt="Image placeholder"
-                                        src="{{ asset('assets-admin') }}/img/team/profile-picture-3.jpg">
+                                        src="<?php echo e(asset('assets-admin')); ?>/img/team/profile-picture-3.jpg">
                                     <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                                         <span class="mb-0 font-small fw-bold text-gray-900">Bonnie Green</span>
                                     </div>
@@ -480,149 +479,127 @@
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah Pelanggan</h1>
-                    <p class="mb-0">Form untuk menambahkan data pelanggan baru.</p>
+                    <h1 class="h4">User</h1>
+                    <p class="mb-0">Form untuk User baru.</p>
                 </div>
                 <div>
-                    <a href="pelanggan.index" class="btn-primary btn-outline-gray"><i
+                    <a href="user.index" class="btn-primary btn-outline-gray"><i
                             class="far fa-question-circle me-1"></i> Kembali</a>
                 </div>
             </div>
         </div>
 
-<form action="{{ route('pelanggan.store') }}" method="POST">
-    @csrf
-    <div class="row">
-        <div class="col-12 mb-4">
-            <div class="card border-0 shadow components-section">
-                <div class="card-body">
-                    <div class="row mb-4">
+        <form action="<?php echo e(route('user.store')); ?>" method="POST">
+            <?php echo csrf_field(); ?>
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <div class="card border-0 shadow components-section">
+                        <div class="card-body">
+                            <div class="row mb-4">
 
-                        <!-- Kolom Kiri -->
-                        <div class="col-lg-6 col-sm-12">
+                                <!-- Kolom Kiri -->
+                                <div class="col-lg-6 col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="name">Nama Lengkap</label>
+                                        <input type="text" class="form-control" name ="name" id="name"
+                                        value="<?php echo e(old ('name)')); ?>" placeholder="Masukkan nama lengkap"
+                                        required>
+                                    </div>
 
-                            <!-- First Name -->
-                            <div class="mb-3">
-                                <label for="first_name">First Name</label>
-                                <input
-                                    type="text"
-                                    class="form-control @error('first_name') is-invalid @enderror"
-                                    id="first_name"
-                                    name="first_name"
-                                    value="{{ old('first_name') }}"
-                                    placeholder="Enter first name"
-                                    required>
-                                @error('first_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+                                    <!-- Email -->
+                                    <div class="mb-3">
+                                        <label for="email">Email address</label>
+                                        <input type="email"
+                                            class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="email"
+                                            name="email" value="<?php echo e(old('email')); ?>" placeholder="Enter email"
+                                            required>
+                                        <small class="form-text text-muted">We'll never share your email with anyone
+                                            else.</small>
+                                        <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <div class="invalid-feedback"><?php echo e($message); ?></div>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                    </div>
 
-                            <!-- Last Name -->
-                            <div class="mb-3">
-                                <label for="last_name">Last Name</label>
-                                <input
-                                    type="text"
-                                    class="form-control @error('last_name') is-invalid @enderror"
-                                    id="last_name"
-                                    name="last_name"
-                                    value="{{ old('last_name') }}"
-                                    placeholder="Enter last name"
-                                    required>
-                                @error('last_name')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
 
-                            <!-- Birthday -->
-                            <div class="mb-3">
-                                <label for="birthday">Birthday</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">
-                                        <svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd"
-                                                d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                    </span>
-                                    <input
-                                        type="date"
-                                        class="form-control @error('birthday') is-invalid @enderror"
-                                        id="birthday"
-                                        name="birthday"
-                                        value="{{ old('birthday') }}">
-                                    @error('birthday')
-                                        <div class="invalid-feedback d-block">{{ $message }}</div>
-                                    @enderror
+
+
+
+
+                                    <div class="mb-3">
+                                        
+                                        <label for="email" class="form-label">Password</label>
+
+                                        
+                                        <div class="input-group">
+                                            
+                                            <span class="input-group-text">
+                                                <svg class="icon icon-xs text-gray-600" fill="currentColor"
+                                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    
+                                                    <path fill-rule="evenodd"
+                                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm3 10a1 1 0 10-2 0v2a1 1 0 102 0v-2z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </span>
+
+                                            
+                                            <input type="password" name="password" id="password"
+                                                class="form-control <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                                 
+                                                placeholder="Masukkan Password">
+                                        </div>
+
+                                        
+                                        <?php $__errorArgs = ['password'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                            <div class="invalid-feedback d-block"><?php echo e($message); ?></div>
+                                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                                    </div>
+                                </div>
+
+                                <!-- Kolom Kanan -->
+                                <div class="col-lg-6 col-sm-12">
+
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Kolom Kanan -->
-                        <div class="col-lg-6 col-sm-12">
-
-                            <!-- Gender -->
-                            <div class="mb-3">
-                                <label for="gender">Gender</label>
-                                <select
-                                    class="form-select @error('gender') is-invalid @enderror"
-                                    id="gender"
-                                    name="gender">
-                                    <option value="">-- Select Gender --</option>
-                                    <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                                    <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
-                                    <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
-                                </select>
-                                @error('gender')
-                                    <div class="invalid-feedback d-block">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <!-- Email -->
-                            <div class="mb-3">
-                                <label for="email">Email address</label>
-                                <input
-                                    type="email"
-                                    class="form-control @error('email') is-invalid @enderror"
-                                    id="email"
-                                    name="email"
-                                    value="{{ old('email') }}"
-                                    placeholder="Enter email"
-                                    required>
-                                <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                @error('email')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <!-- Phone -->
-                            <div class="mb-3">
-                                <label for="phone">Phone</label>
-                                <input
-                                    type="text"
-                                    class="form-control @error('phone') is-invalid @enderror"
-                                    id="phone"
-                                    name="phone"
-                                    value="{{ old('phone') }}"
-                                    placeholder="Enter phone number">
-                                @error('phone')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                            <!-- Tombol Submit -->
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary">Save Customer</button>
                             </div>
 
                         </div>
                     </div>
-
-                    <!-- Tombol Submit -->
-                    <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Save Customer</button>
-                    </div>
-
                 </div>
             </div>
-        </div>
-    </div>
-</form>
+        </form>
 
 
 
@@ -707,10 +684,10 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
     <!-- Volt JS -->
-    <script src="{{ asset('assets-admin') }}/js/volt.js"></script>
+    <script src="<?php echo e(asset('assets-admin')); ?>/js/volt.js"></script>
 
 
 </body>
 
 </html>
-
+<?php /**PATH D:\MersyaMeylaniPutri_2SID\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/user/create.blade.php ENDPATH**/ ?>

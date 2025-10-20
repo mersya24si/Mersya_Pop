@@ -100,7 +100,7 @@
                         <span class="mt-1 ms-1 sidebar-text">Volt Overview</span>
                     </a>
                 </li>
-                <li class="nav-item  active ">
+                <li class="nav-item <?php echo e(request()->routeIs('pelanggan.*') ? 'active' : ''); ?>">
                     <a href="<?php echo e(route('dashboard')); ?>" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -112,7 +112,7 @@
                         <span class="sidebar-text">Dashboard</span>
                     </a>
                 </li>
-                <li class="nav-item  active ">
+                <li class="nav-item <?php echo e(request()->routeIs('pelanggan.*') ? 'active' : ''); ?>">
                     <a href="pelanggan/create" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" data-slot="icon" fill="none" stroke-width="1.5"
