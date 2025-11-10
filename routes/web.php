@@ -4,7 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    //
+    return view ('welcome');
 });
 
 Route::get('/pcr', function () {
