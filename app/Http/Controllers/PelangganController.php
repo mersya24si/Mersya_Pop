@@ -3,17 +3,30 @@ namespace App\Http\Controllers;
 
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class PelangganController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data['dataPelanggan'] = Pelanggan::all();
-		return view('admin.pelanggan.index',$data);
+        // 1. Definisikan kolom untuk filtering (match exact)
+        $filterableColumns = ['gender'];
+
+        // 2. Definisikan kolom untuk searching (LIKE %...%)
+        $searchableColumns = ['first_name', 'last_name', 'email', 'phone'];
+
+        // 3. Terapkan Filter, Search, dan Pagination
+        $pagedata['dataPelanggan'] = Pelanggan::filter($request, $filterableColumns)
+            ->search($request, $searchableColumns)
+            ->paginate(10)
+            ->withQueryString();
+
+        // Catatan: withQueryString() memastikan parameter 'gender' dan 'search'
+        // tetap ada di link pagination.
+
+        return view('admin.pelanggan.index', $pagedata);
     }
 
     /**

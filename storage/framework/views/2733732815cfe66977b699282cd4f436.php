@@ -1,13 +1,12 @@
-@extends('layouts.admin.app')
-@section('content')
-{{-- Start Main Content --}}
+<?php $__env->startSection('content'); ?>
+
 <div class="py-4">
-    {{-- Breadcrumb Navigation --}}
+    
     <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
         <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
             <li class="breadcrumb-item">
                 <a href="#">
-                    {{-- SVG Icon --}}
+                    
                     <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -23,32 +22,33 @@
 
     <div class="d-flex justify-content-between w-100 flex-wrap">
         <div class="mb-3 mb-lg-0">
-            {{-- Success Message --}}
-            @if (session('success'))
+            
+            <?php if(session('success')): ?>
                 <div class="alert alert-success mt-3">
-                    {{ session('success') }}
+                    <?php echo e(session('success')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
             <h1 class="h4">Data User</h1>
             <p class="mb-0">Kumpulan Data User.</p>
         </div>
         <div>
-            {{-- Tombol Tambah --}}
-            <a href="{{ route('user.create') }}" class="btn-primary btn-outline-gray">
+            
+            <a href="<?php echo e(route('user.create')); ?>" class="btn-primary btn-outline-gray">
                 <i class="far fa-question-circle me-1"></i> Tambah User
             </a>
         </div>
     </div>
 
     <div class="table-responsive">
-        {{-- PERBAIKAN: Form Pencarian yang Benar --}}
-        <div class="col-md-4 mt-3"> {{-- Mengubah col-md-3 menjadi col-md-4 dan menambahkan margin top --}}
-            <form action="{{ route('user.index') }}" method="GET"> {{-- Tambahkan form action dan method --}}
+        
+        <div class="col-md-4 mt-3"> 
+            <form action="<?php echo e(route('user.index')); ?>" method="GET"> 
                 <div class="input-group">
                     <input type="text" name="search" class="form-control" id="exampleInputIconRight"
-                        value="{{ request('search') }}" placeholder="Cari Nama atau Email..." aria-label="Search">
+                        value="<?php echo e(request('search')); ?>" placeholder="Cari Nama atau Email..." aria-label="Search">
                     <button type="submit" class="input-group-text" id="basic-addon2">
-                        {{-- SVG Search Icon --}}
+                        
                         <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -56,18 +56,18 @@
                                 clip-rule="evenodd"></path>
                         </svg>
                     </button>
-                    {{-- Tombol Reset jika ada pencarian aktif --}}
-                    @if(request()->filled('search'))
-                        <a href="{{ route('user.index') }}" class="btn btn-secondary input-group-text">
+                    
+                    <?php if(request()->filled('search')): ?>
+                        <a href="<?php echo e(route('user.index')); ?>" class="btn btn-secondary input-group-text">
                             Reset
                         </a>
-                    @endif
+                    <?php endif; ?>
                 </div>
-            </form> {{-- Tutup form --}}
+            </form> 
         </div>
     </div>
 
-    <div class="card border-0 shadow mb-4 mt-3"> {{-- Menambahkan margin top --}}
+    <div class="card border-0 shadow mb-4 mt-3"> 
         <div class="card-body">
             <div class="table-responsive">
                 <table id="table-user" class="table table-centered table-nowrap mb-0 rounded">
@@ -76,23 +76,23 @@
                             <th class="border-0 rounded-start">Name</th>
                             <th class="border-0">Email</th>
                             <th class="border-0 rounded-end">Action</th>
-                            {{-- PERBAIKAN: Menghapus kolom 'Password' karena tidak boleh ditampilkan --}}
+                            
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($dataUser as $item)
+                        <?php $__currentLoopData = $dataUser; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                {{-- PERBAIKAN: Menyesuaikan urutan kolom --}}
-                                <td>{{ $item->name}}</td>
-                                <td>{{ $item->email }}</td>
-                                {{-- PERBAIKAN: Menghapus data password --}}
-                                {{-- <td>{{ $item->password }}</td> --}}
+                                
+                                <td><?php echo e($item->name); ?></td>
+                                <td><?php echo e($item->email); ?></td>
+                                
+                                
 
                                 <td>
-                                    {{-- Tombol Edit --}}
-                                    <a href="{{ route('user.edit', $item->id) }}"
+                                    
+                                    <a href="<?php echo e(route('user.edit', $item->id)); ?>"
                                         class="btn btn-info btn-sm">
-                                        {{-- SVG Edit Icon --}}
+                                        
                                         <svg class="icon icon-xs me-2" fill="none" stroke-width="1.5"
                                             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                                             aria-hidden="true">
@@ -103,14 +103,14 @@
                                         Edit
                                     </a>
 
-                                    {{-- Tombol Hapus (Form) --}}
-                                    <form action="{{ route('user.destroy', $item->id) }}" method="POST"
+                                    
+                                    <form action="<?php echo e(route('user.destroy', $item->id)); ?>" method="POST"
                                         style="display:inline">
-                                        @csrf
-                                        @method('DELETE')
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('DELETE'); ?>
                                         <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"> {{-- Tambahkan konfirmasi --}}
-                                            {{-- SVG Delete Icon --}}
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')"> 
+                                            
                                             <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
                                                 stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -123,12 +123,13 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
-                {{-- Pagination Links --}}
+                
                 <div class="mt-3">
-                    {{ $dataUser->links('pagination::bootstrap-5') }}
+                    <?php echo e($dataUser->links('pagination::bootstrap-5')); ?>
+
                 </div>
             </div>
         </div>
@@ -136,8 +137,8 @@
 </div>
 
 
-{{-- Start Theme Settings --}}
-{{-- Blok ini tidak diubah karena tidak relevan dengan data User --}}
+
+
 <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
     <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
         <span class="fw-bold d-inline-flex align-items-center h6">
@@ -150,7 +151,9 @@
         </span>
     </div>
 </div>
-{{-- End Theme Settings --}}
 
-{{-- End Main Content --}}
-@endsection
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Nabil_2SIB\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/user/index.blade.php ENDPATH**/ ?>

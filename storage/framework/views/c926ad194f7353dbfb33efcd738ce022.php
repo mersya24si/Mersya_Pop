@@ -1,8 +1,7 @@
-@extends('layouts.admin.app')
-@section('content')
-    {{-- Start Main Content --}}
+<?php $__env->startSection('content'); ?>
+    
     <div class="py-4">
-        {{-- Breadcrumb Navigation --}}
+        
         <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
             <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
                 <li class="breadcrumb-item">
@@ -22,16 +21,17 @@
 
         <div class="d-flex justify-content-between w-100 flex-wrap">
             <div class="mb-3 mb-lg-0">
-                @if (session('success'))
+                <?php if(session('success')): ?>
                     <div class="alert alert-success mt-3">
-                        {{ session('success') }}
+                        <?php echo e(session('success')); ?>
+
                     </div>
-                @endif
+                <?php endif; ?>
                 <h1 class="h4">Data Pelanggan</h1>
                 <p class="mb-0">Kumpulan Data Pelanggan.</p>
             </div>
             <div>
-                <a href="{{ route('pelanggan.create') }}" class="btn-primary btn-outline-gray">
+                <a href="<?php echo e(route('pelanggan.create')); ?>" class="btn-primary btn-outline-gray">
                     <i class="far fa-question-circle me-1"></i> Tambah Pelanggan
                 </a>
             </div>
@@ -39,40 +39,40 @@
     </div>
 
     <div class="table-responsive">
-        {{-- Form Filter dan Search (Menggunakan GET) --}}
-        <form method="GET" action="{{ route('pelanggan.index') }}" class="mb-3">
-            <div class="row g-2 align-items-end"> {{-- g-2 untuk jarak dan align-items-end untuk perataan --}}
+        
+        <form method="GET" action="<?php echo e(route('pelanggan.index')); ?>" class="mb-3">
+            <div class="row g-2 align-items-end"> 
 
-                {{-- Filter Gender --}}
+                
                 <div class="col-md-2">
                     <label for="filter-gender" class="form-label">Filter Gender</label>
                     <select name="gender" id="filter-gender" class="form-select">
                         <option value="">-- Semua Gender --</option>
-                        <option value="Male" {{ request('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                        <option value="Female" {{ request('gender') == 'Female' ? 'selected' : '' }}>Female</option>
+                        <option value="Male" <?php echo e(request('gender') == 'Male' ? 'selected' : ''); ?>>Male</option>
+                        <option value="Female" <?php echo e(request('gender') == 'Female' ? 'selected' : ''); ?>>Female</option>
                     </select>
                 </div>
 
-                {{-- Search Input --}}
+                
                 <div class="col-md-3">
                     <label for="search-input" class="form-label">Cari Nama Depan</label>
                     <div class="input-group">
                         <input type="text" name="search" class="form-control" id="search-input"
-                            value="{{ request('search') }}" placeholder="Cari Nama Depan..." aria-label="Search">
+                            value="<?php echo e(request('search')); ?>" placeholder="Cari Nama Depan..." aria-label="Search">
 
-                        {{-- Tombol Submit --}}
+                        
                         <button type="submit" class="btn btn-primary input-group-text" title="Terapkan Filter & Pencarian">
                             <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
                             </svg>
                         </button>
 
-                        {{-- Tombol Reset (Hanya Tampilkan Jika Ada Filter/Search Aktif) --}}
-                        @if (request()->filled('search') || request()->filled('gender'))
-                            <a href="{{ route('pelanggan.index') }}" class="btn btn-secondary input-group-text" title="Reset Filter">
+                        
+                        <?php if(request()->filled('search') || request()->filled('gender')): ?>
+                            <a href="<?php echo e(route('pelanggan.index')); ?>" class="btn btn-secondary input-group-text" title="Reset Filter">
                                 Reset
                             </a>
-                        @endif
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -94,17 +94,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($dataPelanggan as $item)
+                            <?php $__currentLoopData = $dataPelanggan; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{ $item->first_name }}</td>
-                                    <td>{{ $item->last_name }}</td>
-                                    <td>{{ $item->birthday }}</td>
-                                    <td>{{ $item->gender }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->phone }}</td>
+                                    <td><?php echo e($item->first_name); ?></td>
+                                    <td><?php echo e($item->last_name); ?></td>
+                                    <td><?php echo e($item->birthday); ?></td>
+                                    <td><?php echo e($item->gender); ?></td>
+                                    <td><?php echo e($item->email); ?></td>
+                                    <td><?php echo e($item->phone); ?></td>
                                     <td>
-                                        {{-- Tombol Edit --}}
-                                        <a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
+                                        
+                                        <a href="<?php echo e(route('pelanggan.edit', $item->pelanggan_id)); ?>"
                                             class="btn btn-info btn-sm">
                                             <svg class="icon icon-xs me-2" fill="none" stroke-width="1.5"
                                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
@@ -116,11 +116,11 @@
                                             Edit
                                         </a>
 
-                                        {{-- Tombol Hapus --}}
-                                        <form action="{{ route('pelanggan.destroy', $item->pelanggan_id) }}" method="POST"
+                                        
+                                        <form action="<?php echo e(route('pelanggan.destroy', $item->pelanggan_id)); ?>" method="POST"
                                             style="display:inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pelanggan ini?')">
-                                            @csrf
-                                            @method('DELETE')
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo method_field('DELETE'); ?>
                                             <button type="submit" class="btn btn-danger btn-sm">
                                                 <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
                                                     stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
@@ -136,19 +136,20 @@
                                     </td>
 
                                 </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="mt-3">
-                    {{ $dataPelanggan->links('pagination::bootstrap-5') }}
+                    <?php echo e($dataPelanggan->links('pagination::bootstrap-5')); ?>
+
                 </div>
             </div>
         </div>
     </div>
 
 
-    {{-- Start Theme Settings (Dibiarkan tidak berubah) --}}
+    
 
     <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
         <div class="card-body bg-gray-800 text-white rounded-top p-3 py-2">
@@ -164,7 +165,9 @@
         </div>
     </div>
 
-    {{-- End Theme Settings --}}
+    
 
-    {{-- End Main Content --}}
-@endsection
+    
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\Nabil_2SIB\laragon-6.0-minimal\www\mersya_pop\resources\views/admin/pelanggan/index.blade.php ENDPATH**/ ?>

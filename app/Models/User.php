@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+// Import yang hilang agar 'Builder' dikenali
+use Illuminate\Database\Eloquent\Builder; // <-- BARIS INI DITAMBAHKAN
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -44,5 +47,31 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    // --- Local Scope untuk Searching ---
+
+    /**
+     * Menerapkan pencarian teks bebas di beberapa kolom.
+     * @param Builder $query
+     * @param object $request
+     * @param array $columns
+     * @return Builder
+     */
+    public function scopeSearch(Builder $query, $request, array $columns): Builder
+    {
+        // Parameter 'search' adalah nama input field di form pencarian
+        if ($request->filled('search')) {
+            $searchTerm = '%' . $request->search . '%';
+
+            $query->where(function (Builder $q) use ($searchTerm, $columns) {
+                foreach ($columns as $column) {
+                    $q->orWhere($column, 'LIKE', $searchTerm);
+                }
+            });
+        }
+
+        // Sudah benar mengembalikan $query
+        return $query;
     }
 }
