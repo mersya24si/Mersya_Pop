@@ -73,6 +73,16 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
 
+                                <div class="mb-3">
+                                    <label for="role">Role</label>
+                                    <select class="form-select" name="role" id="role" required>
+                                        <option selected disabled value=""><Pilih Role...</option>
+                                        <option value="SuperAdmin">Super Admin</option>
+                                        <option value="Pelanggan">Pelanggan</option>
+                                        <option value="Mitra">Mitra</option>
+                                    </select>
+                                </div>
+
                                 
                                 <div class="form-group mb-4">
                                     <label class="form-label">Foto Profil Saat Ini</label>

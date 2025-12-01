@@ -48,6 +48,7 @@ Route::resource('auth', AuthController::class);
 Route::resource('dashboard', DashboardController::class);
 
 
+
 // 1. Tampilkan detail profil (GET /profile)
 // Mengganti /profile/show menjadi /profile
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
@@ -62,5 +63,7 @@ Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profile
 // 4. Hapus gambar profil (DELETE /profile/picture)
 Route::delete('/profile/picture', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-Route::get('/login', [AuthController::class, 'index']);
+Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.process');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
