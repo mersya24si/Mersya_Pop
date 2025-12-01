@@ -61,3 +61,6 @@ Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profile
 
 // 4. Hapus gambar profil (DELETE /profile/picture)
 Route::delete('/profile/picture', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::get('/login', [AuthController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login'])->name('login.process');
